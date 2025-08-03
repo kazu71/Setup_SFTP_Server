@@ -47,19 +47,9 @@ ForceCommand internal-sftp
 AllowTcpForwarding no
 X11Forwarding no
 ```
-> 7, UFW インストール
-```
-sudo apt install ufw
-```
-```
-sudo ufw enable
-```
-```
-sudo ufw status
-```
-```
-sudo ufw allow 22
-```
+> 7, UFW インストールと設定
+[こちら](https://github.com/kazu71/UFW_System_Setup)のレポジトリを参考にしてください。
+
 > ８，sshサーバの再起動
 
 ```
