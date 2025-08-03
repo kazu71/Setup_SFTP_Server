@@ -47,7 +47,7 @@ ForceCommand internal-sftp
 AllowTcpForwarding no
 X11Forwarding no
 ```
-> 7, UFW インストールと設定
+> 7, UFW （ポート開放ツール）のインストールと設定
 [こちら](https://github.com/kazu71/UFW_System_Setup)のレポジトリを参考にしてください。
 
 > ８，sshサーバの再起動
