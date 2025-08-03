@@ -1,4 +1,4 @@
-# Ubuntu ServerでSFTPサーバをディレクトリ設定をする
+# Ubuntu ServerでSFTPサーバを構築してみた
 ##### このレポジトリーを使って構築設定する場合は、あくまで参考程度に使ってください。<br>OSやバージョンによっては、うまく設定できない場合がございます。
 
 #### 各ユーザごとにSFTPサーバのディレクトリを設定する方法
@@ -32,6 +32,43 @@ sudo chown user1:user1 /home/user1/uploads
 > ５，権限についての仕組み
 - root権限所有ディレクトリ
 <br>/home/user1
-
 - ユーザ（user1）権限所有ディレクトリ
 <br>~/uploads
+
+> ６，SSH設定ファイルの編集
+```
+sudo nano  /etc/ssh/sshd_config
+```
+###### 下記のコードを入力する
+```
+Match User user1
+ChrootDirectory /home/user1
+ForceCommand internal-sftp
+AllowTcpForwarding no
+X11Forwarding no
+```
+> 7, UFW インストール
+```
+sudo apt install ufw
+```
+```
+sudo ufw enable
+```
+```
+sudo ufw status
+```
+```
+sudo ufw allow 22
+```
+> ８，sshサーバの再起動
+
+```
+sudo systemctl restart sshd
+```
+
+
+
+
+
+
+
